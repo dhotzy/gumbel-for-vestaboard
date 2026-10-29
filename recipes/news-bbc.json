@@ -1,0 +1,18 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "abruf",
+  "source": "feed",
+  "name": {
+    "de": "BBC News",
+    "en": "BBC News"
+  },
+  "description": {
+    "de": "Neueste Schlagzeile von BBC News (RSS, englisch).",
+    "en": "Latest BBC News headline (RSS)."
+  },
+  "template": "BBC NEWS\n{{title}}",
+  "pull_url": "https://feeds.bbci.co.uk/news/rss.xml",
+  "pull_interval": 30,
+  "rules": []
+}

@@ -1,0 +1,30 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "webhooks",
+  "source": "webhook",
+  "name": {
+    "de": "Uptime Kuma",
+    "en": "Uptime Kuma"
+  },
+  "description": {
+    "de": "Meldet, wenn ein überwachter Dienst ausfällt (rot) oder wieder läuft (grün). In Uptime Kuma: Benachrichtigung „Webhook“, Body „application/json“, Header X-Key.",
+    "en": "Reports when a monitored service goes down (red) or comes back (green). In Uptime Kuma: notification “Webhook”, body “application/json”, header X-Key."
+  },
+  "template": {
+    "de": "{green} WIEDER DA {green}\n{{monitor.name|15}}",
+    "en": "{green} BACK UP {green}\n{{monitor.name|15}}"
+  },
+  "rules": [
+    {
+      "field": "heartbeat.status",
+      "op": "equals",
+      "value": "0",
+      "template": {
+        "de": "{red} AUSFALL {red}\n{{monitor.name|15}}",
+        "en": "{red} DOWN {red}\n{{monitor.name|15}}"
+      },
+      "force": true
+    }
+  ]
+}

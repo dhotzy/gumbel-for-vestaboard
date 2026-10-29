@@ -1,0 +1,12 @@
+config/config.php
+*.log
+.env
+.DS_Store
+Thumbs.db
+var/*
+!var/.htaccess
+.claude/settings.local.json
+config/deploy.ini
+docs/screenshots/raw/
+node_modules/
+_review/

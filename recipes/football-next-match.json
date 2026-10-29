@@ -1,0 +1,25 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "abruf",
+  "source": "feed",
+  "name": {
+    "de": "Nächstes Fußballspiel",
+    "en": "Next football match"
+  },
+  "description": {
+    "de": "Nächstes Spiel eines Vereins (football-data.org). Kostenlosen API-Schlüssel holen und im Header X-Auth-Token eintragen; Vereins-ID in der Adresse anpassen.",
+    "en": "A club's next match (football-data.org). Get a free API key and enter it in the X-Auth-Token header; adjust the team ID in the address."
+  },
+  "needs": {
+    "de": "API-Schlüssel von football-data.org",
+    "en": "API key from football-data.org"
+  },
+  "template": "{{matches.0.homeTeam.tla}} - {{matches.0.awayTeam.tla}}\n{{matches.0.utcDate|datum}} {{matches.0.utcDate|zeit}}",
+  "pull_url": "https://api.football-data.org/v4/teams/5/matches?status=SCHEDULED&limit=1",
+  "pull_interval": 720,
+  "pull_headers": [
+    "X-Auth-Token"
+  ],
+  "rules": []
+}

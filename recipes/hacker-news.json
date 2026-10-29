@@ -1,0 +1,18 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "abruf",
+  "source": "feed",
+  "name": {
+    "de": "Hacker News",
+    "en": "Hacker News"
+  },
+  "description": {
+    "de": "Neuester Beitrag auf der Hacker-News-Startseite.",
+    "en": "Newest story on the Hacker News front page."
+  },
+  "template": "HACKER NEWS\n{{title}}",
+  "pull_url": "https://hnrss.org/frontpage",
+  "pull_interval": 60,
+  "rules": []
+}

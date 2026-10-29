@@ -1,0 +1,18 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "abruf",
+  "source": "feed",
+  "name": {
+    "de": "Witz (englisch)",
+    "en": "Dad joke"
+  },
+  "description": {
+    "de": "Zufälliger englischer Flachwitz (icanhazdadjoke.com, ohne Konto) – lange Witze werden gekürzt.",
+    "en": "Random dad joke (icanhazdadjoke.com, no account) – long jokes are shortened."
+  },
+  "template": "{{joke}}",
+  "pull_url": "https://icanhazdadjoke.com/",
+  "pull_interval": 720,
+  "rules": []
+}

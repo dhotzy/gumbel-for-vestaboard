@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 262 48" role="img" aria-label="Gumbel">
+  <title>Gumbel</title>
+  <g font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-weight="700" font-size="26" text-anchor="middle">
+    <rect x="0" y="2" width="38" height="44" rx="7" fill="#f6c90e"/>
+    <text x="19" y="33" fill="#17181b">G</text>
+    <rect x="44" y="2" width="38" height="44" rx="7" fill="#17181b"/>
+    <text x="63" y="33" fill="#ffffff">U</text>
+    <rect x="88" y="2" width="38" height="44" rx="7" fill="#17181b"/>
+    <text x="107" y="33" fill="#ffffff">M</text>
+    <rect x="132" y="2" width="38" height="44" rx="7" fill="#17181b"/>
+    <text x="151" y="33" fill="#ffffff">B</text>
+    <rect x="176" y="2" width="38" height="44" rx="7" fill="#17181b"/>
+    <text x="195" y="33" fill="#ffffff">E</text>
+    <rect x="220" y="2" width="38" height="44" rx="7" fill="#17181b"/>
+    <text x="239" y="33" fill="#ffffff">L</text>
+  </g>
+</svg>

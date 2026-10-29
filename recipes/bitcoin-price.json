@@ -1,0 +1,18 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "abruf",
+  "source": "feed",
+  "name": {
+    "de": "Bitcoin-Kurs",
+    "en": "Bitcoin price"
+  },
+  "description": {
+    "de": "Bitcoin in Euro (CoinGecko, ohne Konto). Andere Coins: ids=… in der Adresse ändern.",
+    "en": "Bitcoin in euros (CoinGecko, no account). Other coins: change ids=… in the address."
+  },
+  "template": "{orange} BITCOIN {orange}\n{{bitcoin.eur|eur}}",
+  "pull_url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur",
+  "pull_interval": 60,
+  "rules": []
+}

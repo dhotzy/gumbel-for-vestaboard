@@ -1,0 +1,19 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "webhooks",
+  "source": "webhook",
+  "name": {
+    "de": "Shopify: neue Bestellung",
+    "en": "Shopify: new order"
+  },
+  "description": {
+    "de": "Jede neue Bestellung mit Nummer und Betrag. In Shopify: Einstellungen → Benachrichtigungen → Webhooks, Ereignis „Bestellerstellung“, URL mit ?key=…, Format JSON.",
+    "en": "Every new order with number and amount. In Shopify: Settings → Notifications → Webhooks, event “Order creation”, URL with ?key=…, format JSON."
+  },
+  "template": {
+    "de": "{green} BESTELLUNG\n{{name}} {{customer.first_name|8}}\n{{total_price|eur}}",
+    "en": "{green} NEW ORDER\n{{name}} {{customer.first_name|8}}\n{{total_price|eur}}"
+  },
+  "rules": []
+}

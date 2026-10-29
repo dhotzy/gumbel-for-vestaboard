@@ -1,0 +1,27 @@
+# Gumbel for Vestaboard – start with:  docker compose up -d
+# Then open http://localhost:8080 – the one-time setup link is in the logs:  docker compose logs gumbel
+# Board token: enter it in the app after setup (Settings → Board connection) – or set VESTABOARD_TOKEN below / in .env.
+services:
+  gumbel:
+    image: ghcr.io/dhotzy/gumbel-for-vestaboard:latest
+    # Developers: build it yourself with  docker build -t ghcr.io/dhotzy/gumbel-for-vestaboard:latest .
+    container_name: gumbel
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      # Optional: Vestaboard Cloud API token (otherwise enter it in the app). Keep it in a .env file, never commit it.
+      VESTABOARD_TOKEN: ${VESTABOARD_TOKEN:-}
+      # en | de – can also be changed later in Settings
+      GUMBEL_LANGUAGE: "en"
+      TZ: "Europe/Berlin"
+      # "log" = try it without a real board (writes to var/board.log)
+      GUMBEL_BOARD: "vestaboard"
+      # Behind a TLS reverse proxy: its IP (for real client IPs) and "1" for secure cookies + HSTS
+      GUMBEL_TRUSTED_PROXIES: ""
+      GUMBEL_FORCE_HTTPS: "0"
+    volumes:
+      - gumbel-data:/var/www/html/var
+
+volumes:
+  gumbel-data:

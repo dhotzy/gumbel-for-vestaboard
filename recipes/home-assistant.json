@@ -1,0 +1,16 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "webhooks",
+  "source": "webhook",
+  "name": {
+    "de": "Home Assistant",
+    "en": "Home Assistant"
+  },
+  "description": {
+    "de": "Texte aus Home-Assistant-Automationen (rest_command mit {\"text\": \"…\"}) – Beispiel in der Integrations-Doku.",
+    "en": "Texts from Home Assistant automations (rest_command with {\"text\": \"…\"}) – example in the integrations docs."
+  },
+  "template": "{{text}}",
+  "rules": []
+}

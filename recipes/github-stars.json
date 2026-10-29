@@ -1,0 +1,21 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "abruf",
+  "source": "feed",
+  "name": {
+    "de": "GitHub-Sterne",
+    "en": "GitHub stars"
+  },
+  "description": {
+    "de": "Sterne eines GitHub-Projekts – owner/repo in der Adresse anpassen. Mit Token (Header Authorization) mehr Abrufe pro Stunde.",
+    "en": "Stars of a GitHub project – adjust owner/repo in the address. With a token (Authorization header) you get more requests per hour."
+  },
+  "template": {
+    "de": "{{name|15}}\n{yellow} {{stargazers_count}} STERNE",
+    "en": "{{name|15}}\n{yellow} {{stargazers_count}} STARS"
+  },
+  "pull_url": "https://api.github.com/repos/php/php-src",
+  "pull_interval": 180,
+  "rules": []
+}

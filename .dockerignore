@@ -1,0 +1,13 @@
+.git
+.env
+_review
+.github
+.claude
+config/config.php
+config/deploy.ini
+var/*
+!var/.htaccess
+tests
+scripts/deploy.php
+node_modules
+*.log

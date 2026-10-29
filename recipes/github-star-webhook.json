@@ -1,0 +1,26 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "webhooks",
+  "source": "webhook",
+  "name": {
+    "de": "GitHub: neuer Stern",
+    "en": "GitHub: new star"
+  },
+  "description": {
+    "de": "Zeigt neue Sterne eines Repos. In GitHub: Settings → Webhooks, Payload URL mit ?key=…, Content type application/json, Ereignis „Stars“.",
+    "en": "Shows new stars of a repo. In GitHub: Settings → Webhooks, payload URL with ?key=…, content type application/json, event “Stars”."
+  },
+  "template": "",
+  "rules": [
+    {
+      "field": "action",
+      "op": "equals",
+      "value": "created",
+      "template": {
+        "de": "{yellow} NEUER STERN\n{{repository.name|15}}\n{{sender.login|15}}",
+        "en": "{yellow} NEW STAR\n{{repository.name|15}}\n{{sender.login|15}}"
+      }
+    }
+  ]
+}

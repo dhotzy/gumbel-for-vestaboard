@@ -1,0 +1,21 @@
+{
+  "format": "gumbel-integration",
+  "version": 1,
+  "module": "abruf",
+  "source": "feed",
+  "name": {
+    "de": "Luftqualität",
+    "en": "Air quality"
+  },
+  "description": {
+    "de": "Europäischer Luftqualitätsindex (Open-Meteo, ohne Konto). Breiten-/Längengrad in der Adresse anpassen (Beispiel: Berlin).",
+    "en": "European air quality index (Open-Meteo, no account). Adjust latitude/longitude in the address (example: Berlin)."
+  },
+  "template": {
+    "de": "LUFTQUALITAET\nINDEX {{current.european_aqi}}",
+    "en": "AIR QUALITY\nINDEX {{current.european_aqi}}"
+  },
+  "pull_url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.52&longitude=13.41&current=european_aqi",
+  "pull_interval": 60,
+  "rules": []
+}

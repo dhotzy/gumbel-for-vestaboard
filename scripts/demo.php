@@ -69,6 +69,10 @@ $settings->set('automation_clock', ['enabled' => true, 'interval' => 60, 'style'
 $settings->set('automation_pool', ['enabled' => true, 'items' => \Vesta\Sayings::ALL_EN, 'inactive' => [], 'order' => [], 'art' => ['rainbow', 'love'], 'interval' => 90,
     'windows' => [['days' => [1, 2, 3, 4, 5, 6, 7], 'from' => '08:00', 'to' => '20:00']]]);
 $settings->set('custom_sources', [['id' => 'c_bookings', 'label' => $en ? 'Bookings' : 'Buchungen', 'duration' => 10]]);
+// Briefkasten offen (fester Demo-Link) und Nachrichten zu festen Zeiten
+$settings->set('guest_post', ['enabled' => true, 'token' => 'demo-mailbox-link'] + \Vesta\GuestPost::DEFAULTS);
+$settings->set('automation_news', ['enabled' => true, 'feed' => $en ? 'bbc' : 'tagesschau', 'url' => '', 'count' => 2,
+    'times' => [['days' => [1, 2, 3, 4, 5], 'time' => '07:00'], ['days' => [6, 7], 'time' => '09:00']]]);
 
 // Integration mit Testmodus-Payload
 $inbound = new Inbound($pdo, $messages, new SystemClock());

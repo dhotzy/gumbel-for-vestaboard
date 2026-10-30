@@ -55,7 +55,7 @@ View::header(t('Nachricht ans Board'), null);
 <?php endif; ?>
 <p class="muted"><?= View::e(t('Schreib einen kurzen Gruß – er erscheint auf dem Vestaboard. Du brauchst kein Konto.')) ?></p>
 
-<form method="post" action="post.php" class="compose" data-busy data-preview>
+<form method="post" action="post.php" class="card compose" data-busy data-preview>
     <?= Csrf::field() ?>
     <input type="hidden" name="t" value="<?= View::e($token) ?>">
     <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>

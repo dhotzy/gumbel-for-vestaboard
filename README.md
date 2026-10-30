@@ -43,6 +43,10 @@ Gumbel puts **one fair queue** in front of your board: every message waits its t
   <img src="docs/screenshots/integrations.png" alt="Webhook test mode with payload fields and template preview" width="860">
 </p>
 
+<p align="center">
+  <img src="docs/screenshots/guests.png" alt="Guest mailbox, one-tap mute and QR code" width="860">
+</p>
+
 ## Quick start (Docker)
 
 > 🧭 **New to Docker or servers?** Follow the **[step-by-step installation guide](docs/en/INSTALL.md)** – Docker Desktop, Synology, Raspberry Pi or web hosting, with troubleshooting.

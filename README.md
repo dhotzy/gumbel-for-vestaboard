@@ -66,7 +66,7 @@ Want to try it without a board first? Set `GUMBEL_BOARD: "log"`.
 <details>
 <summary><strong>Classic PHP hosting (without Docker)</strong></summary>
 
-Requirements: PHP 8.2+ (8.4 recommended) with `pdo_sqlite` or `pdo_mysql`, `curl`, `mbstring`, `intl`; HTTPS; a cron job every minute.
+Requirements: PHP 8.2 or newer **with current security updates** (at least 8.2.35, 8.3.36, 8.4.27 or 8.5.12 because of the PHP2Shell vulnerabilities from October 2026; 8.4 recommended) with `pdo_sqlite` or `pdo_mysql`, `curl`, `mbstring`, `intl`; HTTPS; a cron job every minute.
 
 1. Upload the project and point your (sub)domain’s document root to **`public/`** – never to the project folder.
 2. Copy `config/config.example.php` to `config/config.php` and fill in token, a long random `cron_key`, the database and `'language' => 'en'`.
@@ -98,6 +98,7 @@ Requirements: PHP 8.2+ (8.4 recommended) with `pdo_sqlite` or `pdo_mysql`, `curl
 ## Security
 
 - Each integration has its own API key (stored only as a hash), optional HMAC signatures, size limits and rate limits; fetching blocks private networks, unusual ports and redirect tricks.
+- Up to date PHP: the Docker image always uses the latest PHP 8.4 patch release, and admins get a warning on the Board page if the server runs a PHP version with known critical vulnerabilities. `session.upload_progress` is switched off (Docker and `public/.user.ini`).
 - Login protection per IP and per account+IP with growing lock times; admins must use a password (no PIN).
 - Content Security Policy without inline scripts, CSRF tokens on every form, prepared SQL statements, output encoding everywhere.
 - Self-hosted means you are the data controller: messages, names and delivery logs stay in your database. No tracking, no third-party requests except the Vestaboard API, Open-Meteo (weather/geocoding), the news feed you choose, Telegram (if connected) and fetch URLs you configure.

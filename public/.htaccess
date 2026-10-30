@@ -1,1 +1,6 @@
 Options -Indexes
+
+# PHP-Einstellungen nicht ausliefern
+<Files ".user.ini">
+    Require all denied
+</Files>

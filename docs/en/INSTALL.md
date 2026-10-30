@@ -65,7 +65,7 @@ Other NAS systems (QNAP Container Station, Unraid, Portainer) work the same way:
 
 ## D) Web hosting (without Docker)
 
-Requirements: PHP 8.2+ (8.4 recommended) with `pdo_mysql` or `pdo_sqlite`, `curl`, `mbstring`, `intl`; HTTPS; cron jobs.
+Requirements: PHP 8.2 or newer **with current security updates** (at least 8.2.35, 8.3.36, 8.4.27 or 8.5.12 because of the PHP2Shell vulnerabilities from October 2026; 8.4 recommended) with `pdo_mysql` or `pdo_sqlite`, `curl`, `mbstring`, `intl`; HTTPS; cron jobs.
 
 1. Download the project ([ZIP](https://github.com/dhotzy/gumbel-for-vestaboard/archive/refs/heads/main.zip)) and upload it, e.g. via FTP.
 2. In your hosting panel, point the (sub)domain to the **`public/`** folder – never to the project folder itself.

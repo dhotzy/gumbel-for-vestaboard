@@ -6,7 +6,7 @@ RUN apt-get update \
     && docker-php-ext-install intl opcache \
     && rm -rf /var/lib/apt/lists/* \
     && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
-    && printf 'expose_php = Off\ndisplay_errors = Off\nlog_errors = On\nsession.cookie_httponly = 1\n' > "$PHP_INI_DIR/conf.d/zz-gumbel.ini"
+    && printf 'expose_php = Off\ndisplay_errors = Off\nlog_errors = On\nsession.cookie_httponly = 1\nsession.upload_progress.enabled = Off\n' > "$PHP_INI_DIR/conf.d/zz-gumbel.ini"
 
 # Webroot ist public/; .htaccess in den übrigen Ordnern sperrt sie zusätzlich
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public

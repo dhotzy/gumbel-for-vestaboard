@@ -14,10 +14,35 @@ final class Diagnostics
     /**
      * @return list<array{label: string, ok: bool, detail: string}>
      */
+    /** Erste Patch-Versionen je PHP-Zweig mit den Fixes für PHP2Shell (CVE-2026-109618/-109619, Oktober 2026) */
+    public const PATCHED = ['8.2' => 35, '8.3' => 36, '8.4' => 27, '8.5' => 12];
+
+    /** Ist diese PHP-Version gegen bekannte kritische Lücken gepatcht? (neuere Zweige gelten als gepatcht) */
+    public static function phpPatched(string $version = PHP_VERSION): bool
+    {
+        if (!preg_match('/^(\d+)\.(\d+)\.(\d+)/', $version, $m)) {
+            return false;
+        }
+        $branch = $m[1] . '.' . $m[2];
+        if (isset(self::PATCHED[$branch])) {
+            return (int) $m[3] >= self::PATCHED[$branch];
+        }
+        return version_compare($branch, '8.5', '>');
+    }
+
+    /** Mindestversion für den Hinweis, z. B. „8.4.27“ für den laufenden Zweig */
+    public static function minimumPatch(string $version = PHP_VERSION): string
+    {
+        $branch = implode('.', array_slice(explode('.', $version), 0, 2));
+        return isset(self::PATCHED[$branch]) ? $branch . '.' . self::PATCHED[$branch] : '8.4.' . self::PATCHED['8.4'];
+    }
+
     public static function environment(): array
     {
         $checks = [
             ['label' => t('PHP-Version ≥ 8.2'), 'ok' => PHP_VERSION_ID >= 80200, 'detail' => PHP_VERSION],
+            ['label' => t('PHP mit aktuellen Sicherheitsupdates'), 'ok' => self::phpPatched(), 'detail' => self::phpPatched() ? t('ja') : t('nein – mindestens {version} nötig (PHP2Shell, Oktober 2026)', ['version' => self::minimumPatch()])],
+            ['label' => 'session.upload_progress', 'ok' => !filter_var(ini_get('session.upload_progress.enabled'), FILTER_VALIDATE_BOOLEAN), 'detail' => filter_var(ini_get('session.upload_progress.enabled'), FILTER_VALIDATE_BOOLEAN) ? t('an – empfohlen: aus') : t('aus')],
             ['label' => t('cURL-Erweiterung'), 'ok' => extension_loaded('curl'), 'detail' => extension_loaded('curl') ? t('vorhanden') : t('fehlt')],
             ['label' => t('mbstring-Erweiterung'), 'ok' => extension_loaded('mbstring'), 'detail' => extension_loaded('mbstring') ? t('vorhanden') : t('fehlt')],
             ['label' => t('intl-Erweiterung (optional, für seltene Akzente)'), 'ok' => true, 'detail' => class_exists(\Normalizer::class) ? t('vorhanden') : t('nicht vorhanden – gängige Akzente (é, à, ç …) gehen trotzdem')],

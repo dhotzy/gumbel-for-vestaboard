@@ -141,7 +141,7 @@ Messages from integrations can bring their **own display time** (configurable pe
 ## 10. Operations
 
 - **Installation** step by step (Docker Desktop, Synology, Raspberry Pi, web hosting): [INSTALL.md](INSTALL.md). First setup in two steps: create the admin, connect the board.
-- Docker: SQLite in the `gumbel-data` volume, the cron runs inside the container. Web hosting: PHP 8.2+ (8.4 recommended) with MariaDB/MySQL or SQLite, cron job **every minute** on `cron.php` (board sync, Automation, fetches, Telegram, arbiter).
+- Docker: SQLite in the `gumbel-data` volume, the cron runs inside the container. Web hosting: PHP 8.2+ with current security updates (at least 8.2.35 / 8.3.36 / 8.4.27 / 8.5.12; otherwise admins see a security warning on the Board page) with MariaDB/MySQL or SQLite, cron job **every minute** on `cron.php` (board sync, Automation, fetches, Telegram, arbiter).
 - Preferably on the command line: `php public/cron.php` (no key needed). Via URL only with the key – better as `X-Cron-Key` header than `?key=` (which ends up in logs). If a run is still busy, the next one is skipped.
 - Database changes run automatically on the first page load (migrations).
 - **Security:** the document root must be `public/` (nginx ignores `.htaccess`). Behind a reverse proxy, enter its IP and force HTTPS when the proxy terminates TLS: Docker `GUMBEL_TRUSTED_PROXIES` / `GUMBEL_FORCE_HTTPS`, web hosting `trusted_proxies` / `force_https` in `config/config.php`. Strict Content Security Policy, no inline scripts.

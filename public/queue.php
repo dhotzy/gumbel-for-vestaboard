@@ -114,6 +114,9 @@ if ($isAdmin && $cronStale): ?>
 <?php if ($muteReason !== null): ?>
     <div class="flash flash-warn"><?= View::e(t('{reason} – nur Force-Nachrichten erscheinen.', ['reason' => $muteReason])) ?></div>
 <?php endif; ?>
+<?php if ($isAdmin && !Vesta\Diagnostics::phpPatched()): ?>
+    <div class="flash flash-error" role="alert"><?= View::e(t('Sicherheitswarnung: Der Server nutzt PHP {version} mit bekannten kritischen Lücken. Bitte auf mindestens {minimum} aktualisieren (bzw. beim Hoster umstellen).', ['version' => PHP_VERSION, 'minimum' => Vesta\Diagnostics::minimumPatch()])) ?></div>
+<?php endif; ?>
 <?php if (!empty($boardStatus['external_mute'])): ?>
     <div class="flash flash-warn"><?= View::e(t('Das Board ist in der Vestaboard-App stummgeschaltet. Nur Force-Nachrichten kommen durch.')) ?></div>
 <?php endif; ?>

@@ -205,4 +205,8 @@ return [
     'schreib dem Bot, um es auszuprobieren.' => 'write to the bot to try it out.',
     'verbunden' => 'connected',
     'Änderungen werden automatisch gespeichert.' => 'Changes are saved automatically.',
+    'PHP mit aktuellen Sicherheitsupdates' => 'PHP with current security updates',
+    'nein – mindestens {version} nötig (PHP2Shell, Oktober 2026)' => 'no – at least {version} required (PHP2Shell, October 2026)',
+    'an – empfohlen: aus' => 'on – recommended: off',
+    'Sicherheitswarnung: Der Server nutzt PHP {version} mit bekannten kritischen Lücken. Bitte auf mindestens {minimum} aktualisieren (bzw. beim Hoster umstellen).' => 'Security warning: the server runs PHP {version}, which has known critical vulnerabilities. Please update to at least {minimum} (or switch it at your web host).',
 ];
